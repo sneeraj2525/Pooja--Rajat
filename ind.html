@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Pooja & Rajat – Wedding Invitation</title>
+    <meta name="description" content="You are invited to the wedding of Pooja & Rajat, 13 December 2026, Nagpur.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #800020;
+            --deep: #4a0012;
+            --gold: #D4AF37;
+            --blush: #F8D7DA;
+            --ivory: #FFF8EE;
+            color-scheme: light;
+            box-sizing: border-box
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+            margin: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        body {
+            font-family: Poppins, sans-serif;
+            background: var(--ivory);
+            color: #4a2a2a;
+            overflow-x: hidden;
+            padding-bottom: 72px
+        }
+
+        .script {
+            font-family: 'Great Vibes', cursive
+        }
+
+        .serif {
+            font-family: Cinzel, serif
+        }
+
+        .gold {
+            background: linear-gradient(90deg, #b8902a, #f3e08a, #D4AF37, #f3e08a, #b8902a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        /* intro */
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 20px;
+            text-align: center;
+            color: var(--ivory);
+            background: radial-gradient(circle at 50% 40%, #8a0f2c, var(--deep) 75%);
+            transition: opacity 1.2s, transform 1.2s
+        }
+
+        #intro::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .18;
+            background: repeating-conic-gradient(from 0deg at 50% 45%, var(--gold) 0 3deg, transparent 3deg 15deg);
+            -webkit-mask: radial-gradient(circle at 50% 45%, #000, transparent 65%);
+            mask: radial-gradient(circle at 50% 45%, #000, transparent 65%);
+            animation: spin 80s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        #intro.done {
+            opacity: 0;
+            transform: scale(1.15);
+            pointer-events: none
+        }
+
+        .corner {
+            position: absolute;
+            font-size: 46px;
+            opacity: .9;
+            filter: drop-shadow(0 0 6px #0008)
+        }
+
+        .c1 {
+            top: 14px;
+            left: 14px
+        }
+
+        .c2 {
+            top: 14px;
+            right: 14px
+        }
+
+        .c3 {
+            bottom: 14px;
+            left: 14px
+        }
+
+        .c4 {
+            bottom: 14px;
+            right: 14px
+        }
+
+        .sp {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 8px var(--gold);
+            animation: tw 3s infinite
+        }
+
+        @keyframes tw {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(.3)
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.4)
+            }
+        }
+
+        .env {
+            position: relative;
+            width: min(78vw, 330px);
+            aspect-ratio: 3/2;
+            margin-top: 30px;
+            z-index: 2
+        }
+
+        .env .back {
+            position: absolute;
+            inset: 0;
+            background: #6b0019;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px #000a
+        }
+
+        .env .card {
+            position: absolute;
+            left: 7%;
+            right: 7%;
+            top: 6%;
+            bottom: 6%;
+            background: var(--ivory);
+            color: var(--maroon);
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--gold);
+            transition: transform 1.4s .7s cubic-bezier(.2, .8, .2, 1);
+            z-index: 1
+        }
+
+        .env .card b {
+            font-size: 34px;
+            line-height: 1
+        }
+
+        .env .card small {
+            letter-spacing: 3px;
+            font-size: 10px
+        }
+
+        .env .front {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: linear-gradient(160deg, #a01438, #7a0a26);
+            clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+            border-radius: 8px
+        }
+
+        .env .flap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 60%;
+            z-index: 3;
+            background: linear-gradient(#9a1235, #7a0a26);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            transition: transform .8s, z-index 0s .4s
+        }
+
+        .seal {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            width: 54px;
+            height: 54px;
+            margin: -27px;
+            border-radius: 50%;
+            z-index: 4;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 35% 30%, #f3e08a, #b8902a);
+            color: var(--maroon);
+            font-family: Cinzel;
+            font-weight: 700;
+            box-shadow: 0 4px 12px #0008;
+            transition: opacity .4s
+        }
+
+        .env.open .flap {
+            transform: rotateX(180deg);
+            z-index: 0
+        }
+
+        .env.open .seal {
+            opacity: 0
+        }
+
+        .env.open .card {
+            transform: translateY(-72%)
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 12px 28px;
+            border: 0;
+            border-radius: 99px;
+            font: 500 14px Cinzel, serif;
+            letter-spacing: 2px;
+            color: var(--deep);
+            cursor: pointer;
+            text-decoration: none;
+            background: linear-gradient(135deg, #f3e08a, var(--gold) 50%, #b8902a);
+            box-shadow: 0 6px 20px #d4af3755;
+            transition: transform .2s, box-shadow .2s;
+            position: relative;
+            z-index: 2
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px #d4af3799
+        }
+
+        .btn:active {
+            transform: scale(.94)
+        }
+
+        .btn.dark {
+            background: var(--maroon);
+            color: var(--ivory)
+        }
+
+        /* sections */
+        section {
+            position: relative;
+            padding: 72px 18px;
+            text-align: center;
+            overflow: hidden
+        }
+
+        h2 {
+            font: 700 clamp(24px, 6vw, 36px) Cinzel, serif;
+            color: var(--maroon);
+            letter-spacing: 3px
+        }
+
+        .div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 12px 0 30px;
+            color: var(--gold)
+        }
+
+        .div::before,
+        .div::after {
+            content: "";
+            height: 1px;
+            width: 70px;
+            background: linear-gradient(90deg, transparent, var(--gold))
+        }
+
+        .div::after {
+            transform: scaleX(-1)
+        }
+
+        #home {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--ivory);
+            background: radial-gradient(circle at 50% 30%, #9a1235, var(--deep) 80%)
+        }
+
+        #home::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: .12;
+            background: repeating-conic-gradient(from 0deg at 50% 35%, var(--gold) 0 3deg, transparent 3deg 15deg)
+        }
+
+        #home>* {
+            position: relative
+        }
+
+        .names {
+            font-size: clamp(64px, 19vw, 130px);
+            line-height: 1
+        }
+
+        .amp {
+            font-size: 40px;
+            color: var(--gold)
+        }
+
+        .cd {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px
+        }
+
+        .cd div {
+            width: 70px;
+            padding: 12px 0;
+            border: 1px solid var(--gold);
+            border-radius: 14px;
+            background: #ffffff12;
+            backdrop-filter: blur(4px)
+        }
+
+        .cd b {
+            display: block;
+            font: 700 26px Cinzel
+        }
+
+        .cd small {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--blush)
+        }
+
+        .scroll {
+            margin-top: 14px;
+            width: 26px;
+            height: 44px;
+            border: 2px solid var(--gold);
+            border-radius: 14px;
+            position: relative
+        }
+
+        .scroll::after {
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: 8px;
+            width: 4px;
+            height: 8px;
+            border-radius: 2px;
+            background: var(--gold);
+            animation: dn 1.6s infinite
+        }
+
+        @keyframes dn {
+            to {
+                transform: translateY(16px);
+                opacity: 0
+            }
+        }
+
+        .couple-svg {
+            width: min(60vw, 240px);
+            filter: drop-shadow(0 8px 20px #0008)
+        }
+
+        .pair {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            max-width: 920px;
+            margin: auto
+        }
+
+        @media(min-width:800px) {
+            .pair {
+                flex-direction: row;
+                justify-content: center;
+                align-items: stretch;
+                gap: 20px
+            }
+        }
+
+        .prof {
+            flex: 1;
+            max-width: 380px;
+            padding: 34px 24px;
+            background: #fff;
+            border-radius: 26px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 12px 36px #80002022;
+            outline: 6px solid var(--blush);
+            outline-offset: -14px;
+            transition: transform .3s
+        }
+
+        .prof:hover {
+            transform: translateY(-6px)
+        }
+
+        .prof .lbl {
+            font: 500 12px Cinzel;
+            letter-spacing: 4px;
+            color: var(--gold)
+        }
+
+        .prof .nm {
+            font-size: 60px;
+            color: var(--maroon);
+            line-height: 1.2
+        }
+
+        .prof p {
+            font-size: 14px;
+            line-height: 1.7;
+            margin-top: 6px
+        }
+
+        .prof .ico {
+            font-size: 40px
+        }
+
+        .big-amp {
+            font-size: 64px;
+            line-height: 1
+        }
+
+        #events {
+            background: linear-gradient(var(--ivory), var(--blush) 50%, var(--ivory))
+        }
+
+        .ev {
+            max-width: 480px;
+            margin: 0 auto 34px;
+            padding: 34px 22px;
+            border-radius: 28px;
+            background: #fffdf8;
+            border: 2px solid var(--gold);
+            box-shadow: 0 14px 40px #80002026;
+            position: relative;
+            outline: 6px solid var(--blush);
+            outline-offset: -14px
+        }
+
+        .ev.wed {
+            background: linear-gradient(160deg, #9a1235, var(--deep));
+            color: var(--ivory)
+        }
+
+        .ev.wed h3 {
+            color: var(--gold)
+        }
+
+        .ev .art {
+            font-size: 46px;
+            letter-spacing: 6px;
+            margin-bottom: 6px
+        }
+
+        .ev h3 {
+            font: 700 22px Cinzel;
+            color: var(--maroon);
+            margin-bottom: 16px
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 9px 0;
+            font-size: 15px
+        }
+
+        .row svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 2;
+            flex: none
+        }
+
+        .ev .btn {
+            margin-top: 18px
+        }
+
+        .cal {
+            animation: bob 2.4s ease-in-out infinite
+        }
+
+        @keyframes bob {
+            50% {
+                transform: translateY(-4px)
+            }
+        }
+
+        .lights {
+            position: absolute;
+            top: 8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px
+        }
+
+        .lights i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ffd86b;
+            box-shadow: 0 0 10px 3px #ffd86b;
+            animation: tw 2s infinite
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            max-width: 900px;
+            margin: auto
+        }
+
+        @media(min-width:800px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        .ph {
+            aspect-ratio: 3/4;
+            border-radius: 18px;
+            border: 2px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: var(--ivory);
+            font: 500 13px Cinzel;
+            cursor: pointer;
+            transition: transform .4s, box-shadow .4s;
+            box-shadow: 0 8px 22px #8000202e
+        }
+
+        .ph span {
+            font-size: 44px
+        }
+
+        .ph:hover {
+            transform: scale(1.04) rotate(-1deg);
+            box-shadow: 0 14px 34px #80002060
+        }
+
+        #lb {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            background: #000d;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        #lb.on {
+            display: flex;
+            animation: fade .3s
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0
+            }
+        }
+
+        #lb .ph {
+            width: min(86vw, 420px);
+            cursor: default;
+            font-size: 18px
+        }
+
+        #lb .ph span {
+            font-size: 90px
+        }
+
+        #lb button {
+            position: absolute;
+            top: calc(env(safe-area-inset-top, 0px) + 14px);
+            right: 16px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 0;
+            font-size: 22px;
+            background: var(--gold);
+            cursor: pointer
+        }
+
+        #thanks {
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: var(--ivory);
+            background: radial-gradient(circle at 50% 40%, #9a1235, var(--deep) 80%)
+        }
+
+        #thanks .frame {
+            position: absolute;
+            inset: 14px;
+            border: 2px solid var(--gold);
+            border-radius: 24px;
+            pointer-events: none;
+            outline: 1px solid var(--gold);
+            outline-offset: 6px
+        }
+
+        #thanks h2 {
+            color: var(--gold);
+            font-size: clamp(34px, 9vw, 56px)
+        }
+
+        /* nav */
+        nav {
+            position: fixed;
+            z-index: 80;
+            left: 10px;
+            right: 10px;
+            bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+            display: flex;
+            justify-content: space-around;
+            padding: 6px;
+            border-radius: 22px;
+            background: #4a0012ee;
+            border: 1px solid var(--gold);
+            backdrop-filter: blur(8px);
+            max-width: 520px;
+            margin: auto
+        }
+
+        nav a {
+            flex: 1;
+            min-height: 48px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            font-size: 10px;
+            color: var(--blush);
+            text-decoration: none;
+            border-radius: 16px;
+            transition: .2s
+        }
+
+        nav a svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2
+        }
+
+        nav a.on {
+            color: var(--deep);
+            background: var(--gold)
+        }
+
+        #mus {
+            position: fixed;
+            z-index: 81;
+            top: calc(env(safe-area-inset-top, 0px) + 12px);
+            right: 12px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--gold);
+            background: #4a0012cc;
+            color: var(--gold);
+            font-size: 20px;
+            cursor: pointer;
+            display: none
+        }
+
+        .petal {
+            position: fixed;
+            top: -30px;
+            z-index: 95;
+            pointer-events: none;
+            width: 14px;
+            height: 18px;
+            background: radial-gradient(circle at 30% 30%, #ffc2d1, #e0457b);
+            border-radius: 80% 0 80% 0;
+            animation: fall linear forwards;
+            opacity: .9
+        }
+
+        @keyframes fall {
+            to {
+                transform: translate(var(--dx), 110vh) rotate(720deg)
+            }
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: opacity .9s, transform .9s
+        }
+
+        .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(min-width:900px) {
+            nav {
+                max-width: 560px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition-duration: .01s !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <symbol id="couple" viewBox="0 0 200 230">
+                <ellipse cx="100" cy="222" rx="80" ry="6" fill="#0004" />
+                <path d="M30 220 L42 110 Q62 96 82 110 L96 220Z" fill="#c4163f" />
+                <path d="M42 110 Q62 150 82 110 Q70 90 62 90 Q50 92 42 110Z" fill="#f3e08a" />
+                <circle cx="62" cy="72" r="19" fill="#e8b48a" />
+                <path d="M42 72 Q44 48 62 50 Q82 48 82 72 Q74 58 62 58 Q50 58 42 72Z" fill="#1c0b0b" />
+                <path d="M40 70 Q36 110 44 150 L52 100Z" fill="#f8d7da" opacity=".85" />
+                <circle cx="62" cy="60" r="3" fill="#D4AF37" />
+                <circle cx="62" cy="124" r="7" fill="#e8b48a" />
+                <path d="M104 220 L110 108 Q134 94 160 108 L170 220Z" fill="#fff3d6" stroke="#D4AF37"
+                    stroke-width="3" />
+                <path d="M118 112 L135 220 M150 110 L135 220" stroke="#D4AF37" stroke-width="2" />
+                <circle cx="135" cy="72" r="19" fill="#d9a074" />
+                <path d="M116 70 Q118 46 135 48 Q154 46 154 70 Q148 56 135 56 Q122 56 116 70Z" fill="#1c0b0b" />
+                <path d="M116 52 Q135 36 154 52 L150 62 Q135 50 120 62Z" fill="#800020" />
+                <circle cx="135" cy="124" r="7" fill="#d9a074" />
+                <path d="M62 120 L135 120" stroke="#D4AF37" stroke-width="1" opacity="0" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <div id="intro">
+        <span class="corner c1">🌸</span><span class="corner c2">🌺</span><span class="corner c3">🌺</span><span
+            class="corner c4">🌸</span>
+        <span class="sp" style="top:20%;left:18%"></span><span class="sp"
+            style="top:30%;right:15%;animation-delay:.8s"></span><span class="sp"
+            style="top:70%;left:25%;animation-delay:1.4s"></span><span class="sp"
+            style="top:60%;right:22%;animation-delay:2s"></span>
+        <p class="serif" style="letter-spacing:5px;font-size:12px;color:var(--gold);z-index:2">॥ Wedding Invitation ॥</p>
+        <h1 class="script gold" style="font-size:clamp(48px,14vw,84px);font-weight:400;z-index:2">You’re Invited!</h1>
+        <div class="env" id="env">
+            <div class="back"></div>
+            <div class="card"><small class="serif">THE WEDDING OF</small><b class="script">Pooja & Rajat</b><small>13 ·
+                    12 · 2026</small></div>
+            <div class="front"></div>
+            <div class="flap"></div>
+            <div class="seal">P&R</div>
+        </div>
+        <p class="script" style="font-size:34px;z-index:2">Pooja & Rajat</p>
+        <button class="btn" id="openBtn">OPEN INVITATION 💌</button>
+    </div>
+
+    <button id="mus" aria-label="Toggle music">🔊</button>
+
+    <main>
+        <section id="home">
+            <p class="serif" style="letter-spacing:6px;font-size:13px;color:var(--gold)">WEDDING INVITATION</p>
+            <svg class="couple-svg" viewBox="0 0 200 230">
+                <use href="#couple" />
+            </svg>
+            <div class="names script gold">Pooja</div>
+            <div class="amp script">&</div>
+            <div class="names script gold">Rajat</div>
+            <p style="max-width:340px;font-style:italic;font-weight:300;line-height:1.7;margin-top:6px">“Together with
+                our families, we invite you to celebrate our special day.”</p>
+            <div class="cd" id="cd">
+                <div><b>0</b><small>DAYS</small></div>
+                <div><b>0</b><small>HOURS</small></div>
+                <div><b>0</b><small>MINS</small></div>
+                <div><b>0</b><small>SECS</small></div>
+            </div>
+            <div class="scroll" aria-hidden="true"></div>
+        </section>
+
+        <section id="couple">
+            <h2 class="rv">THE BRIDE & GROOM</h2>
+            <div class="div rv">❖</div>
+            <div class="pair">
+                <div class="prof rv">
+                    <div class="ico">👰</div>
+                    <div class="lbl">BRIDE</div>
+                    <div class="nm script">Pooja</div>
+                    <p>D/o Mrs. Vandana & Mr. Ramdas Parise</p>
+                    <p>Add. Juni Mangalwari, C.A. Road, Nagpur - 08</p>
+                </div>
+                <div class="big-amp script gold rv">&</div>
+                <div class="prof rv">
+                    <div class="ico">🤵</div>
+                    <div class="lbl">GROOM</div>
+                    <div class="nm script">Rajat</div>
+                    <p>S/o Asha & Late Trimbakji Thawkar</p>
+                    <p>Add. Prem Nagar, Lane No. 5, Zenda Sq., Nagpur - 02</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2 class="rv">CELEBRATIONS</h2>
+            <div class="div rv">❖</div>
+            <div class="ev rv">
+                <div class="art">🌼🪔💍</div>
+                <h3>Ring Ceremony & Haladi</h3>
+                <div class="row"><svg class="cal" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
+                    </svg>Friday, 11th of December 2026</div>
+                <div class="row"><svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>12:30 PM onwards</div>
+                <div class="row"><svg viewBox="0 0 24 24">
+                        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg><b>Shri. Kolba Swami Sanskrutik Sabhagruh</b></div>
+                <p style="font-size:14px">Telephone Exchange Sq., C.A. Road, Nagpur.</p>
+                <a class="btn dark" target="_blank" rel="noopener"
+                    href="https://www.google.com/maps/search/?api=1&query=Kolba+Swami+Sanskrutik+Sabhagruh+Telephone+Exchange+Square+CA+Road+Nagpur">📍
+                    VIEW LOCATION</a>
+            </div>
+
+            <div class="ev wed rv">
+                <div class="lights"><i></i><i style="animation-delay:.4s"></i><i style="animation-delay:.8s"></i><i
+                        style="animation-delay:1.2s"></i><i style="animation-delay:1.6s"></i></div>
+                <div class="art" style="margin-top:12px">🌸🛕🌸</div>
+                <h3>Wedding Ceremony</h3>
+                <div class="row"><svg class="cal" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
+                    </svg>Sunday, 13th of December 2026</div>
+                <div class="row"><svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                    </svg>Evening 5:45 PM onwards</div>
+                <div class="row"><svg viewBox="0 0 24 24">
+                        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg><b>Balaji Lawn</b></div>
+                <p style="font-size:14px">Old Kamptee, Kalamna Road near bridge, Kamptee, Nagpur - 441001.</p>
+                <a class="btn" target="_blank" rel="noopener"
+                    href="https://www.google.com/maps/dir/?api=1&destination=Balaji+Lawn+Kalamna+Road+Kamptee+Nagpur+441001">🧭
+                    GET DIRECTIONS</a>
+            </div>
+        </section>
+
+
+
+        <section id="thanks">
+            <div class="frame"></div><span class="corner c1" style="position:absolute">🌸</span><span class="corner c2"
+                style="position:absolute">🌸</span><span class="corner c3" style="position:absolute">🌺</span><span
+                class="corner c4" style="position:absolute">🌺</span>
+            <svg class="couple-svg rv" viewBox="0 0 200 230">
+                <use href="#couple" />
+            </svg>
+            <h2 class="serif rv">THANK YOU!</h2>
+        </section>
+    </main>
+
+    <div id="lb"><button aria-label="Close">✕</button>
+        <div class="ph"></div>
+    </div>
+
+
+
+    <script>
+        (function () {
+            var $ = function (s) {return document.querySelector(s)};
+            // gallery
+            var G = [["Couple Portrait", "💑", "#800020,#c4163f"], ["Pre-Wedding", "🌅", "#b8902a,#800020"], ["Traditional Look", "👰", "#4a0012,#9a1235"], ["Mehendi Hands", "🌿", "#6b8e4e,#800020"], ["Mandap", "🛕", "#c4163f,#D4AF37"], ["Together Forever", "💍", "#800020,#4a0012"]];
+            var grid = $("#grid"), lb = $("#lb"), lbp = lb.querySelector(".ph");
+            G.forEach(function (g) {
+                var d = document.createElement("div"); d.className = "ph rv"; d.tabIndex = 0; d.style.background = "linear-gradient(160deg," + g[2] + ")"; d.innerHTML = "<span>" + g[1] + "</span>" + g[0];
+                d.onclick = function () {lbp.style.background = d.style.background; lbp.innerHTML = d.innerHTML; lb.classList.add("on")}; grid.appendChild(d)
+            });
+            lb.onclick = function (e) {if (e.target !== lbp) lb.classList.remove("on")};
+            // petals
+            function petals(n) {for (var i = 0; i < n; i++) {setTimeout(function () {var p = document.createElement("i"); p.className = "petal"; p.style.left = Math.random() * 100 + "vw"; var s = .6 + Math.random() * .9; p.style.transform = "scale(" + s + ")"; p.style.setProperty("--dx", (Math.random() * 160 - 80) + "px"); p.style.animationDuration = (6 + Math.random() * 6) + "s"; document.body.appendChild(p); setTimeout(function () {p.remove()}, 12500)}, i * 160)} }
+            // music (soft synthesized melody)
+            var ac, timer, playing = false, notes = [392, 494, 587, 659, 587, 494, 440, 523, 659, 784, 659, 523], ni = 0;
+            function tick() {
+                var o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime; o.type = "sine"; o.frequency.value = notes[ni % notes.length] / (ni % 12 == 0 ? 2 : 1); ni++;
+                g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.07, t + .15); g.gain.exponentialRampToValueAtTime(.001, t + 1.8); o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 1.9)
+            }
+            function play() {try {ac = ac || new (window.AudioContext || window.webkitAudioContext)(); ac.resume(); tick(); timer = setInterval(tick, 700); playing = true; $("#mus").textContent = "🔊"} catch (e) { } }
+            function stop() {clearInterval(timer); playing = false; $("#mus").textContent = "🔇"}
+            $("#mus").onclick = function () {playing ? stop() : play()};
+            // open
+            $("#openBtn").onclick = function () {
+                this.disabled = true; $("#env").classList.add("open"); play(); $("#mus").style.display = "block";
+                setTimeout(function () {$("#intro").classList.add("done"); petals(40); document.body.style.overflow = ""}, 2600);
+                setTimeout(function () {$("#intro").style.display = "none"}, 4000)
+            };
+            document.body.style.overflow = "hidden";
+            // countdown
+            var T = new Date("2026-12-13T17:45:00+05:30").getTime(), cd = $("#cd").children;
+            function up() {var d = Math.max(0, T - Date.now()), v = [Math.floor(d / 864e5), Math.floor(d / 36e5) % 24, Math.floor(d / 6e4) % 60, Math.floor(d / 1e3) % 60]; for (var i = 0; i < 4; i++)cd[i].firstChild.textContent = v[i]}
+            up(); setInterval(up, 1000);
+            // reveal + nav
+            var io = new IntersectionObserver(function (es) {es.forEach(function (e) {if (e.isIntersecting) e.target.classList.add("in")})}, {threshold: .15});
+            document.querySelectorAll(".rv").forEach(function (e) {io.observe(e)});
+            var links = document.querySelectorAll("nav a"), so = new IntersectionObserver(function (es) {es.forEach(function (e) {if (e.isIntersecting) links.forEach(function (a) {a.classList.toggle("on", a.getAttribute("href") == "#" + e.target.id)})})}, {threshold: .45});
+            document.querySelectorAll("section").forEach(function (s) {so.observe(s)});
+        })();
+    </script>
+</body>
+
+</html>
